@@ -11,7 +11,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -20,7 +19,20 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.uw.intentdemo.MainActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <!--<data android:mimeType="text/plain"/>-->
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
+
+        <receiver android:name=".MyReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <!--no category because not for an activity! -->
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
